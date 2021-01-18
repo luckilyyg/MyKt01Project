@@ -1,0 +1,13 @@
+include ':base_module:module_aop'
+include ':business:play_base'
+include ':base_module:module_widget'
+include ':base_module:module_common_res'
+include ':business:play_mine'
+include ':business:play_home'
+include ':business:play_square'
+include ':business:play_system'
+include ':business:play_project'
+include ':business:play_wechat'
+include ':base_module:mvvmwill'
+include ':app'
+rootProject.name = "MyKt01Project"
