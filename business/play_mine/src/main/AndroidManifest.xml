@@ -3,8 +3,15 @@
     package="com.gy.play_mine">
     <!-- 访问网络 -->
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application>
-        <activity android:name=".ui.activity.MineLoginActivity"></activity>
+        <activity android:name=".ui.activity.MineSettingActivity"></activity>
+        <activity android:name=".ui.activity.MineShareActivity" />
+        <activity android:name=".ui.activity.MineTodoActivity" />
+        <activity android:name=".ui.activity.MineScoreActivity" />
+        <activity android:name=".ui.activity.MineRankActivity" />
+        <activity android:name=".ui.activity.MineRegisterActivity" />
+        <activity android:name=".ui.activity.MineLoginActivity" />
     </application>
 
 </manifest>

@@ -19,7 +19,9 @@ class App : BaseApplication() {
         //初始化全局异常崩溃
         initCrash()
         //Android Router路由框架
-        ARouter.init(this);
+        ARouter.openLog()
+        ARouter.openDebug()
+        ARouter.init(this)
     }
 
     private fun initCrash() {

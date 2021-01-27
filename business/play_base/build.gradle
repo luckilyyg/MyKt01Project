@@ -80,8 +80,8 @@ dependencies {
     api rootProject.ext.dependencies["PickerView"]
     api rootProject.ext.dependencies["jsbridge"]
     api rootProject.ext.dependencies["utilcode"]
-    kapt 'com.alibaba:arouter-compiler:1.2.2'
     implementation 'com.alibaba:arouter-api:1.5.0'
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
     api project(':base_module:module_common_res')
     api project(':base_module:module_widget')
 }

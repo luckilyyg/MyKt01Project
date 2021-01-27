@@ -3,6 +3,7 @@ package com.will.habit.base
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.preference.Preference
 import android.util.Log
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout

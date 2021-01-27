@@ -37,17 +37,17 @@ abstract class ApiDisposableObserver<T> : DisposableObserver<T>() {
 
     override fun onNext(o: T) {
         val baseResponse = o as BaseResponse<*>
-        when (baseResponse.code) {
+        when (baseResponse.errorCode) {
             CodeRule.CODE_200, CodeRule.CODE_220 ->                 // 请求成功, 正确的操作方式, 并消息提示
                 //请求成功, 正确的操作方式
                 onResult(baseResponse.data as T?)
             CodeRule.CODE_300 -> {
                 //请求失败，不打印Message
                 e("请求失败")
-                ToastUtils.showShort("错误代码:", baseResponse.code)
+                ToastUtils.showShort("错误代码:", baseResponse.errorCode)
             }
             CodeRule.CODE_330 ->                 //请求失败，打印Message
-                ToastUtils.showShort(baseResponse.error!!)
+                ToastUtils.showShort(baseResponse.errorMsg!!)
             CodeRule.CODE_503 ->                 //参数为空
                 e("参数为空")
             CodeRule.CODE_502 ->                 //没有数据
@@ -59,7 +59,7 @@ abstract class ApiDisposableObserver<T> : DisposableObserver<T>() {
                 appManager!!.finishAllActivity()
             }
             CodeRule.CODE_530 -> ToastUtils.showShort("请先登录")
-            else -> ToastUtils.showShort("错误代码:", baseResponse.code)
+            else -> ToastUtils.showShort("错误代码:", baseResponse.errorCode)
         }
     }
 

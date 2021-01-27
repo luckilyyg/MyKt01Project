@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -8,23 +10,62 @@
             type="com.gy.crazy.ui.viewmodel.TabBarViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        android:orientation="vertical">
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
 
-        <FrameLayout
-            android:id="@+id/frameLayout"
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
+            android:layout_height="match_parent">
 
-        <me.majiajie.pagerbottomtabstrip.PageNavigationView
-            android:id="@+id/pager_bottom_tab"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp56">
+            <include layout="@layout/toolbar" />
 
-        </me.majiajie.pagerbottomtabstrip.PageNavigationView>
-    </LinearLayout>
+            <include layout="@layout/container" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                style="@style/Widget.Design.BottomNavigationView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:background="@color/viewBackground"
+                app:elevation="@dimen/dp16"
+                app:itemIconTint="@drawable/nav_item_color_state"
+                app:itemTextColor="@drawable/nav_item_color_state"
+                app:layout_behavior="com.will.play.widget.behavior.BottomNavigationBehavior"
+                app:menu="@menu/bottom_navigation_main" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floating_action_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginRight="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp60"
+                app:layout_behavior="com.will.play.widget.behavior.ScaleDownShowBehavior"
+                app:srcCompat="@drawable/ic_arrow_upward_white_24dp"
+                tools:ignore="VectorDrawableCompat"></com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+        <!--侧滑显示列表-->
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/viewBackground"
+            android:fitsSystemWindows="true"
+            app:headerLayout="@layout/nav_header_main"
+            app:itemIconTint="@color/item_nav_color_tv"
+            app:itemTextColor="@color/item_nav_color_tv"
+            app:menu="@menu/nav_menu"></com.google.android.material.navigation.NavigationView>
+    </androidx.drawerlayout.widget.DrawerLayout>
+
 </layout>
