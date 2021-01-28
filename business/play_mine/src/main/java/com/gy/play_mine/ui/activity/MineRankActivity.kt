@@ -4,10 +4,10 @@ import android.os.Bundle
 import com.gy.play_mine.BR
 import com.gy.play_mine.R
 import com.gy.play_mine.databinding.ActivityRankBinding
-import com.gy.play_mine.ui.viewmodel.MineRankViewModel
+import com.gy.play_mine.ui.viewmodel.MineCoinRankViewModel
 import com.will.habit.base.BaseActivity
 
-class MineRankActivity : BaseActivity<ActivityRankBinding, MineRankViewModel>() {
+class MineRankActivity : BaseActivity<ActivityRankBinding, MineCoinRankViewModel>() {
 
 
     override fun needToolBar(): Boolean {

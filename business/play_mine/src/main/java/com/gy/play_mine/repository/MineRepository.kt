@@ -12,4 +12,16 @@ class MineRepository : BaseModel<Any>() {
      * 积分排行榜
      */
     suspend fun getCoinRank(page: Int) = mineService.getCoinRank(page).check()
+
+
+    /**
+     * 个人积分列表
+     */
+    suspend fun getUserCoinList(page: Int) = mineService.getUserCoinList(page).check()
+
+    /**
+     * 个人收藏列表
+     */
+    suspend fun getUserCollectList(page: Int) = mineService.getUserCollectList(page).check()
+
 }

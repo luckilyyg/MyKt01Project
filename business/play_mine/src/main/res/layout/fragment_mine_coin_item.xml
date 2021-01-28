@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.gy.play_mine.ui.viewmodel.MineUserCoinItemViewModel" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="0dp"
+        android:paddingTop="@dimen/dp16"
+        android:paddingEnd="@dimen/dp16"
+        android:paddingBottom="@dimen/dp16">
+
+        <RelativeLayout
+            android:id="@+id/rl_ranking"
+            android:layout_width="@dimen/dp60"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/tv_ranking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                tools:text="1" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dp4"
+            android:layout_toStartOf="@+id/tv_score"
+            android:layout_toEndOf="@+id/rl_ranking"
+            android:text="@{viewModel.data.userName}"
+            android:textSize="@dimen/sp16"
+            tools:text="iceCola" />
+
+        <TextView
+            android:id="@+id/tv_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/colorAccent"
+            tools:text="360" />
+    </RelativeLayout>
+</layout>

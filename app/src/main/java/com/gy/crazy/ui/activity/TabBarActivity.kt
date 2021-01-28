@@ -26,6 +26,7 @@ import com.will.habit.base.AppManager
 import com.will.habit.base.BaseActivity
 import com.will.habit.constant.ConstantConfig
 import com.will.habit.utils.SPUtils
+import com.will.play.base.constant.Constants
 import com.will.play.base.utils.isLogin
 import com.will.play.base.utils.userName
 import kotlinx.android.synthetic.main.activity_tab_bar.*
@@ -170,7 +171,7 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
                 }
                 R.id.nav_collect -> {
                     if (isLogin) {
-                        goCommonActivity(ConstantConfig.Type.COLLECT_TYPE_KEY)
+                        goCommonActivity(Constants.Type.COLLECT_TYPE_KEY)
                     } else {
                         ToastUtils.showLong(resources.getString(R.string.login_tint))
                         goLogin()
@@ -226,10 +227,10 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
     }
 
     private fun goCommonActivity(type: String) {
-//        Intent(this@TabBarActivity, CommonActivity::class.java).run {
-//            putExtra(Constant.TYPE_KEY, type)
-//            startActivity(this)
-//        }
+        Intent(this@TabBarActivity, CommonActivity::class.java).run {
+            putExtra(Constants.TYPE_KEY, type)
+            startActivity(this)
+        }
     }
 
     /**

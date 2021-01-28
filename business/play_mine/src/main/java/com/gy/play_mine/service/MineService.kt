@@ -1,7 +1,6 @@
 package com.gy.play_mine.service
 
-import com.gy.play_mine.entity.MineCoinRank
-import com.gy.play_mine.entity.MineUserInfo
+import com.gy.play_mine.entity.*
 import com.will.habit.http.BaseResponse
 import com.will.play.base.constant.Constants
 import retrofit2.http.GET
@@ -28,8 +27,24 @@ interface MineService {
 
     /**
      * 积分排行榜
+     * https://www.wanandroid.com/coin/rank/1/json
      */
     @GET("/coin/rank/{page}/json")
     suspend fun getCoinRank(@Path("page") page: Int):BaseResponse<MineCoinRank>
+
+    /**
+     * 获取个人积分列表
+     * https://www.wanandroid.com/lg/coin/list/1/json
+     */
+    @GET("/lg/coin/list/{page}/json")
+    suspend fun getUserCoinList(@Path("page") page: Int):BaseResponse<MineUserCoin>
+
+    /**
+     * 获取个人收藏列表
+     * https://www.wanandroid.com/lg/collect/list/0/json
+     */
+    @GET("/lg/collect/list/{page}/json")
+    suspend fun getUserCollectList(@Path("page") page: Int):BaseResponse<MineUserCollect>
+
 
 }
