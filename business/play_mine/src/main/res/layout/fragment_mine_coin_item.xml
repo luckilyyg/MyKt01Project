@@ -29,6 +29,7 @@
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
                 android:gravity="center"
+                android:text="@{String.valueOf(viewModel.index)}"
                 tools:text="1" />
 
         </RelativeLayout>
@@ -41,7 +42,7 @@
             android:layout_marginEnd="@dimen/dp4"
             android:layout_toStartOf="@+id/tv_score"
             android:layout_toEndOf="@+id/rl_ranking"
-            android:text="@{viewModel.data.userName}"
+            android:text="@{viewModel.data.desc}"
             android:textSize="@dimen/sp16"
             tools:text="iceCola" />
 
@@ -52,6 +53,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:textColor="@color/colorAccent"
+            android:text="@{String.valueOf(viewModel.data.coinCount)}"
             tools:text="360" />
     </RelativeLayout>
 </layout>

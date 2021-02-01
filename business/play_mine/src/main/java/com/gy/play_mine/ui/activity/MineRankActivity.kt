@@ -10,10 +10,6 @@ import com.will.habit.base.BaseActivity
 class MineRankActivity : BaseActivity<ActivityRankBinding, MineCoinRankViewModel>() {
 
 
-    override fun needToolBar(): Boolean {
-        return false
-    }
-
     override fun initContentView(savedInstanceState: Bundle?): Int {
         return R.layout.activity_rank
     }
@@ -21,5 +17,6 @@ class MineRankActivity : BaseActivity<ActivityRankBinding, MineCoinRankViewModel
     override fun initVariableId(): Int {
         return BR.viewModel
     }
+
 
 }

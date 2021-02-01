@@ -33,6 +33,7 @@ class MineUserCoinListViewModel (application: Application) :
     }
     init {
         loadInit()
+        setTitleText("我的积分")
     }
     override fun showEmptyState() {
         TODO("Not yet implemented")

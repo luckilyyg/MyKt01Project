@@ -37,6 +37,7 @@ class MineCoinRankViewModel(application: Application) :
 
     init {
         loadInit()
+        setTitleText("积分排行榜")
     }
 
     override fun showEmptyState() {
