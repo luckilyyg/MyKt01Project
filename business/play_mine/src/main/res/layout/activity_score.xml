@@ -8,12 +8,62 @@
             type="com.gy.play_mine.ui.viewmodel.MineUserCoinListViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
         tools:context=".ui.activity.MineScoreActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp49"
+            android:background="@color/colorAccent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/dp15"
+                android:scaleType="fitXY"
+                android:src="@mipmap/icon_back"
+                app:onClickCommand="@{viewModel.onBackClick}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@{viewModel.title}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp18"
+                tools:text="标题"></TextView>
+
+            <ImageView
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp15"
+                app:onClickCommand="@{viewModel.onRankClick}"
+                app:srcCompat="@drawable/ic_rank_white_24dp"
+                tools:ignore="VectorDrawableCompat" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_coin_counts"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp120"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="@{viewModel.userCoinAccount}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp26"
+            android:textStyle="bold"></TextView>
+
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -28,5 +78,5 @@
             app:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}">
 
         </androidx.recyclerview.widget.RecyclerView>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

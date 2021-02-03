@@ -8,6 +8,8 @@ import com.gy.play_mine.R
 import com.gy.play_mine.repository.MineRepository
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
+import com.will.habit.binding.command.BindingAction
+import com.will.habit.binding.command.BindingCommand
 import com.will.habit.extection.launch
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import me.tatarka.bindingcollectionadapter2.ItemBinding
@@ -41,12 +43,13 @@ class MineUserCollectListViewModel(application: Application) :
         TODO("Not yet implemented")
     }
 
+
     override fun getItemBinding(): ItemBinding<ItemViewModel<*>> {
         return ItemBinding.of { binding, _, item ->
             when (item) {
                 is MineUserCollectItemViewModel -> binding.set(
                     BR.viewModel,
-                    R.layout.fragment_mine_coinrank_item
+                    R.layout.fragment_mine_collect_item
                 )
             }
         }
@@ -60,17 +63,17 @@ class MineUserCollectListViewModel(application: Application) :
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
-            if (pageIndex == 1) {
-                showDialog()
-                val listData = model.getUserCollectList(pageIndex)
-                val dataList = listData.datas.mapIndexed { index, dataLists
-                    ->
-                    MineUserCollectItemViewModel(this, dataLists, index)
-                }
-                viewModels.addAll(dataList)
-                dismissDialog()
-                loadCallback.onSuccess(viewModels, pageIndex, 1)
+            showDialog()
+            val listData = model.getUserCollectList(pageIndex)
+            val dataList = listData.datas.mapIndexed { index, dataLists
+                ->
+                MineUserCollectItemViewModel(this, dataLists, index)
             }
+            viewModels.addAll(dataList)
+            dismissDialog()
+            loadCallback.onSuccess(viewModels, pageIndex, 1)
+
+
         }, {
             dismissDialog()
         })

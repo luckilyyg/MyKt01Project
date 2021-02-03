@@ -7,6 +7,7 @@ import android.view.KeyEvent
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.FragmentTransaction
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -16,6 +17,7 @@ import com.gy.crazy.BR
 import com.gy.crazy.R
 import com.gy.crazy.databinding.ActivityTabBarBinding
 import com.gy.crazy.ui.viewmodel.TabBarViewModel
+import com.gy.crazy.util.SettingUtil
 import com.gy.play_home.ui.fragment.HomeFragment
 import com.gy.play_mine.ui.activity.*
 import com.gy.play_project.ui.fragment.ProjectFragment
@@ -195,15 +197,15 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
                     logout()
                 }
                 R.id.nav_night_mode -> {
-//                    if (SettingUtil.getIsNightMode()) {
-//                        SettingUtil.setIsNightMode(false)
-//                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-//                    } else {
-//                        SettingUtil.setIsNightMode(true)
-//                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-//                    }
-//                    window.setWindowAnimations(R.style.WindowAnimationFadeInOut)
-//                    recreate()
+                    if (SettingUtil.getIsNightMode()) {
+                        SettingUtil.setIsNightMode(false)
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                    } else {
+                        SettingUtil.setIsNightMode(true)
+                        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                    }
+                    window.setWindowAnimations(R.style.WindowAnimationFadeInOut)
+                    recreate()
                 }
                 R.id.nav_todo -> {
                     if (isLogin) {

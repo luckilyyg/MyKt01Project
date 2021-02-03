@@ -2,58 +2,63 @@
 <layout xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="com.gy.play_mine.ui.viewmodel.MineUserCoinItemViewModel" />
     </data>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:paddingStart="0dp"
         android:paddingTop="@dimen/dp16"
         android:paddingEnd="@dimen/dp16"
         android:paddingBottom="@dimen/dp16">
 
-        <RelativeLayout
-            android:id="@+id/rl_ranking"
-            android:layout_width="@dimen/dp60"
+        <LinearLayout
+            android:id="@+id/ll_coin_des"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true">
+            android:layout_marginLeft="@dimen/dp17"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_ranking"
+                android:id="@+id/tv_coin_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
                 android:gravity="center"
-                android:text="@{String.valueOf(viewModel.index)}"
-                tools:text="1" />
+                android:maxLines="1"
+                android:text="@{viewModel.data.reason}"
+                android:textStyle="bold"
+                tools:text="阅读文章" />
 
-        </RelativeLayout>
+            <TextView
+                android:id="@+id/tv_coin_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/dp8"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="@{viewModel.data.desc}"
+                android:textSize="@dimen/sp12"
+                tools:text="2021-2-2" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/dp4"
-            android:layout_toStartOf="@+id/tv_score"
-            android:layout_toEndOf="@+id/rl_ranking"
-            android:text="@{viewModel.data.desc}"
-            android:textSize="@dimen/sp16"
-            tools:text="iceCola" />
-
-        <TextView
-            android:id="@+id/tv_score"
+            android:layout_gravity="center"
+            android:id="@+id/tv_coin_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp15"
+            android:text='@{@string/plus_splicing+viewModel.data.coinCount}'
             android:textColor="@color/colorAccent"
-            android:text="@{String.valueOf(viewModel.data.coinCount)}"
-            tools:text="360" />
-    </RelativeLayout>
+            tools:text="100" />
+<!--        android:text="@{String.valueOf(viewModel.data.coinCount)}"-->
+    </LinearLayout>
 </layout>

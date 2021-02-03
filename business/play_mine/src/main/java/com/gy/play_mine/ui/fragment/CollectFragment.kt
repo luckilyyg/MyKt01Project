@@ -38,4 +38,6 @@ class CollectFragment : BaseFragment<FragmentCollectBinding, MineUserCollectList
     override fun initVariableId(): Int {
         return BR.viewModel
     }
+
+
 }

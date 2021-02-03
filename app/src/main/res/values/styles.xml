@@ -10,15 +10,25 @@
         <item name="android:windowDisablePreview">true</item>
         <item name="android:listDivider">@drawable/bg_divider</item>
     </style>
+
     <style name="AppTheme" parent="BaseAppTheme.NoActionBar"></style>
+
     <style name="BaseAppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="WindowAnimationFadeInOut">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
     <!-- 设置Toolbar标题字体的大小 -->
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">@dimen/sp18</item>
     </style>
+
 </resources>

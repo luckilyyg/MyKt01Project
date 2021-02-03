@@ -8,6 +8,7 @@ import com.gy.play_mine.R
 import com.gy.play_mine.databinding.ActivityRankBinding
 import com.gy.play_mine.databinding.ActivityScoreBinding
 import com.gy.play_mine.ui.viewmodel.MineUserCoinListViewModel
+import com.gyf.immersionbar.ktx.immersionBar
 import com.will.habit.base.BaseActivity
 
 /**
@@ -22,4 +23,18 @@ class MineScoreActivity : BaseActivity<ActivityScoreBinding, MineUserCoinListVie
     override fun initVariableId(): Int {
         return BR.viewModel
     }
+
+    override fun needToolBar(): Boolean {
+        return false
+    }
+
+    override fun initData() {
+        super.initData()
+        immersionBar {
+            statusBarColor(R.color.colorAccent)
+            navigationBarColor(R.color.translate)
+            statusBarDarkFont(true)
+        }
+    }
+
 }

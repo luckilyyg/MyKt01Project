@@ -8,6 +8,13 @@ import com.will.habit.http.RetrofitClient
 class MineRepository : BaseModel<Any>() {
     private val mineService by lazy { RetrofitClient.instance.create(MineService::class.java) }
 
+
+    /**
+     * 获取个人总积分
+     */
+    suspend fun getUserCoin() = mineService.getUserCoin().check()
+
+
     /**
      * 积分排行榜
      */

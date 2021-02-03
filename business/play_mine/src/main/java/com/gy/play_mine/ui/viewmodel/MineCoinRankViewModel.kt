@@ -37,7 +37,7 @@ class MineCoinRankViewModel(application: Application) :
 
     init {
         loadInit()
-        setTitleText("积分排行榜")
+        setTitleText(application.getString(R.string.score_list))
     }
 
     override fun showEmptyState() {
@@ -62,7 +62,7 @@ class MineCoinRankViewModel(application: Application) :
     override fun loadData(pageIndex: Int, loadCallback: LoadCallback<ItemViewModel<*>>) {
         launch({
             val viewModels = mutableListOf<ItemViewModel<*>>()
-            if (pageIndex == 1) {
+            if (pageIndex == 0) {
                 showDialog()
                 val listData = model.getCoinRank(pageIndex)
                 val dataList = listData.datas.mapIndexed { index, dataLists
