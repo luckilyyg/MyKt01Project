@@ -76,18 +76,19 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 tools:text="2010-00-00" />
-
+            <!--            android:src='@{viewmodel.MDistanceOrder.equals("asc"?@drawable/buzjj_ic_asc:@drawable/buzjj_ic_desc}'-->
 
             <ImageView
                 android:id="@+id/home_article_collection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:src='@{viewModel.data.collect?@drawable/ic_like:@drawable/ic_like_not}'
                 app:layout_constraintBottom_toTopOf="@id/home_article_time"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="VectorDrawableCompat,contentDescription"
                 tools:srcCompat="@drawable/ic_like" />
-<!--            app:srcCompat="@{viewModel.data.collect?@drawable/ic_like:@drawable/ic_like_not}"-->
+            <!--           -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

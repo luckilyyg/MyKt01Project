@@ -13,9 +13,7 @@ import com.will.habit.extection.launch
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
-class HomeViewModel(application: Application) :
-    BaseListViewModel<HomeRepository, ItemViewModel<*>>(application) {
-    private  val TAG = "HomeViewModel"
+class HomeViewModel(application: Application) : BaseListViewModel<HomeRepository, ItemViewModel<*>>(application) {
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(
