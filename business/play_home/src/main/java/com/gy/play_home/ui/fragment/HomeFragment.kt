@@ -5,7 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.gy.play_home.BR
 import com.gy.play_home.R
+import com.gy.play_home.databinding.FragmentHomeBinding
+import com.gy.play_home.ui.viewmodel.HomeViewModel
+import com.will.habit.base.BaseFragment
 
 
 /**
@@ -13,23 +17,21 @@ import com.gy.play_home.R
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+    override fun initContentView(
+        inflater: LayoutInflater?,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    ): Int {
+        return R.layout.fragment_home
     }
 
     companion object {
         fun getInstance(): HomeFragment = HomeFragment()
+    }
+
+    override fun initVariableId(): Int {
+        return BR.viewModel
     }
 }
