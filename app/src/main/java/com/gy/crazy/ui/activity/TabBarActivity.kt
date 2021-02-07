@@ -302,22 +302,22 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
                     transaction.show(mHomeFragment!!)
                 }
             }
-            FRAGMENT_SQUARE  // 广场
+            FRAGMENT_SQUARE  // 体系
             -> {
-                toolbar.title = getString(R.string.square)
+                toolbar.title = getString(R.string.knowledge_system)
                 if (mSquareFragment == null) {
                     mSquareFragment = SquareFragment.getInstance()
-                    transaction.add(R.id.frameLayout, mSquareFragment!!, "square")
+                    transaction.add(R.id.frameLayout, mSquareFragment!!, "system")
                 } else {
                     transaction.show(mSquareFragment!!)
                 }
             }
-            FRAGMENT_SYSTEM // 体系
+            FRAGMENT_SYSTEM // 导航
             -> {
-                toolbar.title = getString(R.string.knowledge_system)
+                toolbar.title = getString(R.string.navigation)
                 if (mSystemFragment == null) {
                     mSystemFragment = SystemFragment.getInstance()
-                    transaction.add(R.id.frameLayout, mSystemFragment!!, "system")
+                    transaction.add(R.id.frameLayout, mSystemFragment!!, "navigation")
                 } else {
                     transaction.show(mSystemFragment!!)
                 }

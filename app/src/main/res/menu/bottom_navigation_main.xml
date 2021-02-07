@@ -11,7 +11,7 @@
         android:id="@+id/action_square"
         android:enabled="true"
         android:icon="@drawable/ic_square_black_24dp"
-        android:title="@string/square"
+        android:title="@string/knowledge_system"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_wechat"
@@ -23,7 +23,7 @@
         android:id="@+id/action_system"
         android:enabled="true"
         android:icon="@drawable/ic_apps_black_24dp"
-        android:title="@string/knowledge_system"
+        android:title="@string/navigation"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_project"
