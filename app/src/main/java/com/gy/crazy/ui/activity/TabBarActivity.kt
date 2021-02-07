@@ -12,6 +12,7 @@ import androidx.core.view.MenuItemCompat
 import androidx.fragment.app.FragmentTransaction
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.ToastUtils
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.gy.crazy.BR
 import com.gy.crazy.R
@@ -107,6 +108,12 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
             title = getString(R.string.app_name)
             setSupportActionBar(this)
         }
+        bottom_navigation.run {
+            // 以前使用 BottomNavigationViewHelper.disableShiftMode(this) 方法来设置底部图标和字体都显示并去掉点击动画
+            // 升级到 28.0.0 之后，官方重构了 BottomNavigationView ，目前可以使用 labelVisibilityMode = 1 来替代
+            // BottomNavigationViewHelper.disableShiftMode(this)
+            setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        }
         initDrawerLayout()
         initNavView()
         showFragment(mIndex)
@@ -154,6 +161,38 @@ class TabBarActivity : BaseActivity<ActivityTabBarBinding, TabBarViewModel>() {
             startActivity(Intent(this@TabBarActivity, MineRankActivity::class.java))
         }
     }
+    /**
+     * NavigationItemSelect监听
+     */
+    private val onNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            return@OnNavigationItemSelectedListener when (item.itemId) {
+                R.id.action_home -> {
+                    showFragment(FRAGMENT_HOME)
+                    true
+                }
+                R.id.action_square -> {
+                    showFragment(FRAGMENT_SQUARE)
+                    true
+                }
+                R.id.action_system -> {
+                    showFragment(FRAGMENT_SYSTEM)
+                    true
+                }
+                R.id.action_project -> {
+                    showFragment(FRAGMENT_PROJECT)
+                    true
+                }
+                R.id.action_wechat -> {
+                    showFragment(FRAGMENT_WECHAT)
+                    true
+                }
+                else -> {
+                    false
+                }
+
+            }
+        }
 
     /**
      * NavigationView 监听
