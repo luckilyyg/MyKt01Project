@@ -22,6 +22,6 @@
             app:items="@{viewModel.items}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:loadStatus="@{viewModel.loadStatus}"
-            app:onLoadMoreCommand="@{viewModel.onLoadMoreCommand}" />
+            />
     </LinearLayout>
 </layout>

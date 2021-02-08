@@ -9,5 +9,5 @@ interface SystemService {
      * https://www.wanandroid.com/navi/json
      */
     @GET("/navi/json")
-    suspend fun getSystem(): BaseResponse<SystemEntity>
+    suspend fun getSystem(): BaseResponse<List<SystemEntity>>
 }

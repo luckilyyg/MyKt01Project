@@ -1,22 +1,19 @@
-package com.gy.play_system.ui.viewmodel
+package com.gy.play_project.ui.viewmodel
 
 import android.app.Application
-import android.util.Log
-import androidx.databinding.ObservableField
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.gy.play_system.BR
-import com.gy.play_system.R
-import com.gy.play_system.repository.SystemRepository
+import com.gy.play_project.BR
+import com.gy.play_project.R
+import com.gy.play_project.repository.ProjectRepository
 import com.will.habit.base.BaseListViewModel
 import com.will.habit.base.ItemViewModel
 import com.will.habit.extection.launch
 import com.will.habit.widget.recycleview.paging.LoadCallback
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 
-class SystemViewModel(application: Application) :
-    BaseListViewModel<SystemRepository, ItemViewModel<*>>(application) {
-
+class ProjectViewModel(application: Application) :
+    BaseListViewModel<ProjectRepository, ItemViewModel<*>>(application) {
     override fun getDiffItemCallback(): DiffUtil.ItemCallback<ItemViewModel<*>> {
         return object : DiffUtil.ItemCallback<ItemViewModel<*>>() {
             override fun areItemsTheSame(
@@ -47,7 +44,7 @@ class SystemViewModel(application: Application) :
     override fun getItemBinding(): ItemBinding<ItemViewModel<*>> {
         return ItemBinding.of { binding, _, item ->
             when (item) {
-                is SystemViewItemModel -> binding.set(BR.viewModel, R.layout.fragment_system_item)
+                is ProjectItemViewModel -> binding.set(BR.viewModel, R.layout.fragment_project_item)
             }
         }
     }
@@ -60,14 +57,14 @@ class SystemViewModel(application: Application) :
         launch({
             showDialog()
             val viewModels = mutableListOf<ItemViewModel<*>>()
-            val listData = model.getSystem()
-            val dataList = listData.mapIndexed { index, dataLists ->
-                SystemViewItemModel(this, dataLists, index)
-            }
+            val listData = model.getProject()
+            val dataList = listData.mapIndexed { index, dataLists -> ProjectItemViewModel(this, dataLists, index) }
             viewModels.addAll(dataList)
+
             dismissDialog()
             loadCallback.onSuccess(viewModels, pageIndex, 1)
         }, {
+
         })
     }
 }

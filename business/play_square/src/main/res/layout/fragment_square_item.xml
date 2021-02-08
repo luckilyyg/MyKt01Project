@@ -20,9 +20,7 @@
             name="viewModel"
             type="com.gy.play_square.ui.viewmodel.SquareItemViewModel" />
 
-        <variable
-            name="squareItem"
-            type="com.gy.play_square.entity.SquareChildren" />
+
     </data>
 
     <androidx.cardview.widget.CardView

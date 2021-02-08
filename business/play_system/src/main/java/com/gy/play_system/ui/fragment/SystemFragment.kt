@@ -13,9 +13,7 @@ import com.will.habit.base.BaseFragment
 
 
 /**
- * A simple [Fragment] subclass.
- * Use the [SystemFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * 导航.
  */
 class SystemFragment : BaseFragment<FragmentSystemBinding, SystemViewModel>() {
 

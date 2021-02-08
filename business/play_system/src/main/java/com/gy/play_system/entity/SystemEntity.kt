@@ -1,9 +1,9 @@
 package com.gy.play_system.entity
 
-data class SystemEntity(
-    val articles: List<Article>,
-    val cid: Int,
-    val name: String
+ data class SystemEntity(
+     val articles: List<Article>,
+     val cid: Int,
+     val name: String
 )
 
 data class Article(
